@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: chat-app-server
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # Add these in Render dashboard instead of here for security:
+      # - MONGO_URI
+      # - JWT_SECRET
+      # - CLIENT_URL
+      # - SKIP_SEED=true
+      # - GEMINI_API_KEY
+

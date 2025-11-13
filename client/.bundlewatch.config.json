@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "path": "./dist/js/*.js",
+      "maxSize": "500kb"
+    },
+    {
+      "path": "./dist/js/react-vendor-*.js",
+      "maxSize": "200kb"
+    },
+    {
+      "path": "./dist/js/apollo-vendor-*.js",
+      "maxSize": "150kb"
+    },
+    {
+      "path": "./dist/js/ui-vendor-*.js",
+      "maxSize": "100kb"
+    },
+    {
+      "path": "./dist/js/socket-vendor-*.js",
+      "maxSize": "50kb"
+    }
+  ]
+}
+

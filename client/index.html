@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Real-time chat application with AI assistant powered by Google Gemini. Connect with friends, create group chats, and get intelligent responses from NeuroBot." />
+    <meta name="keywords" content="chat, messaging, real-time chat, AI assistant, Gemini, group chat, instant messaging" />
+    <meta name="author" content="NeuroBot Chat Application" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://your-domain.com" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com" />
+    <meta property="og:title" content="NeuroBot Chat Application" />
+    <meta property="og:description" content="Real-time chat application with AI assistant powered by Google Gemini." />
+    <meta property="og:image" content="https://your-domain.com/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://your-domain.com" />
+    <meta property="twitter:title" content="NeuroBot Chat Application" />
+    <meta property="twitter:description" content="Real-time chat application with AI assistant powered by Google Gemini." />
+    <meta property="twitter:image" content="https://your-domain.com/twitter-image.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="NeuroBot" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>NeuroBot Chat Application - Real-time messaging with AI assistant</title>
+    <script>
+      // Apply dark mode immediately before React loads
+      (function() {
+        const saved = localStorage.getItem('darkMode');
+        const isDarkMode = saved ? JSON.parse(saved) : true; // Default to dark mode
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      src="https://accounts.google.com/gsi/client"
+      async
+      defer
+    ></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,52 @@
+{
+  "name": "chat-app-client",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:analyze": "vite build --mode analyze",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:watch": "vitest --watch",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "bundle-analyze": "vite-bundle-visualizer"
+  },
+  "dependencies": {
+    "@apollo/client": "^4.0.9",
+    "@types/styled-components": "^5.1.35",
+    "axios": "^1.6.2",
+    "date-fns": "^2.30.0",
+    "emoji-picker-react": "^4.15.0",
+    "graphql": "^16.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-joyride": "^2.9.3",
+    "react-router-dom": "^6.20.0",
+    "socket.io-client": "^4.6.1",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^4.0.8",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "happy-dom": "^20.0.10",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "vitest": "^4.0.8"
+  }
+}
