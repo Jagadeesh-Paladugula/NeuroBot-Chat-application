@@ -462,7 +462,7 @@ const Landing = () => {
     <LandingContainer $isLoading={loading}>
       {loading && (
         <LandingLoadingOverlay aria-live="polite">
-          <Loader message={loadingMessage} />
+          <Loader message={loadingMessage} variant="onDark" />
         </LandingLoadingOverlay>
       )}
       <LandingContent className="landing-content">

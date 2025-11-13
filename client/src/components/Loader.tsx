@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 interface LoaderProps {
   message?: string;
   compact?: boolean;
+  variant?: 'default' | 'onDark';
 }
 
 const spin = keyframes`
@@ -25,17 +26,17 @@ const pulse = keyframes`
   }
 `;
 
-const LoaderContainer = styled.div<{ $compact?: boolean }>`
+const LoaderContainer = styled.div<{ $compact?: boolean; $variant?: 'default' | 'onDark' }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: ${props => props.$compact ? '10px' : '14px'};
   padding: ${props => props.$compact ? '12px 8px' : '24px 16px'};
-  color: #4f46e5;
+  color: ${props => props.$variant === 'onDark' ? '#ffffff' : '#4f46e5'};
 
   .dark-mode & {
-    color: #c7d2fe;
+    color: ${props => props.$variant === 'onDark' ? '#ffffff' : '#c7d2fe'};
   }
 `;
 
@@ -48,57 +49,61 @@ const LoaderSpinner = styled.div`
   justify-content: center;
 `;
 
-const LoaderRing = styled.span`
+const LoaderRing = styled.span<{ $variant?: 'default' | 'onDark' }>`
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 4px solid rgba(99, 102, 241, 0.25);
-  border-top-color: rgba(99, 102, 241, 0.9);
+  border: 4px solid ${props => props.$variant === 'onDark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(99, 102, 241, 0.25)'};
+  border-top-color: ${props => props.$variant === 'onDark' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(99, 102, 241, 0.9)'};
   animation: ${spin} 1s linear infinite;
 
   .dark-mode & {
-    border-color: rgba(129, 140, 248, 0.15);
-    border-top-color: rgba(165, 180, 252, 0.85);
+    border-color: ${props => props.$variant === 'onDark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(129, 140, 248, 0.15)'};
+    border-top-color: ${props => props.$variant === 'onDark' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(165, 180, 252, 0.85)'};
   }
 `;
 
-const LoaderDot = styled.span<{ $delay: number }>`
+const LoaderDot = styled.span<{ $delay: number; $variant?: 'default' | 'onDark' }>`
   position: absolute;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: ${props => props.$variant === 'onDark' 
+    ? 'linear-gradient(135deg, #ffffff, #e0e7ff)' 
+    : 'linear-gradient(135deg, #6366f1, #8b5cf6)'};
   opacity: 0;
   animation: ${pulse} 1.5s ease-in-out infinite;
   animation-delay: ${props => props.$delay}s;
 
   .dark-mode & {
-    background: linear-gradient(135deg, #a855f7, #38bdf8);
+    background: ${props => props.$variant === 'onDark' 
+      ? 'linear-gradient(135deg, #ffffff, #e0e7ff)' 
+      : 'linear-gradient(135deg, #a855f7, #38bdf8)'};
   }
 `;
 
-const LoaderMessage = styled.p`
+const LoaderMessage = styled.p<{ $variant?: 'default' | 'onDark' }>`
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #4338ca;
+  color: ${props => props.$variant === 'onDark' ? '#ffffff' : '#4338ca'};
   text-align: center;
 
   .dark-mode & {
-    color: #c7d2fe;
+    color: ${props => props.$variant === 'onDark' ? '#ffffff' : '#c7d2fe'};
   }
 `;
 
-const Loader = ({ message = 'Loading...', compact = false }: LoaderProps) => (
-  <LoaderContainer $compact={compact}>
+const Loader = ({ message = 'Loading...', compact = false, variant = 'default' }: LoaderProps) => (
+  <LoaderContainer $compact={compact} $variant={variant}>
     <LoaderSpinner>
-      <LoaderRing />
-      <LoaderDot $delay={0} />
-      <LoaderDot $delay={0.25} />
-      <LoaderDot $delay={0.5} />
+      <LoaderRing $variant={variant} />
+      <LoaderDot $delay={0} $variant={variant} />
+      <LoaderDot $delay={0.25} $variant={variant} />
+      <LoaderDot $delay={0.5} $variant={variant} />
     </LoaderSpinner>
-    {message ? <LoaderMessage>{message}</LoaderMessage> : null}
+    {message ? <LoaderMessage $variant={variant}>{message}</LoaderMessage> : null}
   </LoaderContainer>
 );
 

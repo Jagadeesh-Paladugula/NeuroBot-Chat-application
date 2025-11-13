@@ -9,7 +9,7 @@ type ThemeAction = { type: 'TOGGLE_DARK_MODE' } | { type: 'SET_DARK_MODE'; paylo
 const getInitialTheme = (): boolean => {
   try {
     const saved = localStorage.getItem('darkMode');
-    const parsed = saved !== null ? JSON.parse(saved) : true;
+    const parsed = saved !== null ? JSON.parse(saved) : false;
     if (parsed) {
       document.documentElement.classList.add('dark-mode');
     } else {
@@ -17,9 +17,9 @@ const getInitialTheme = (): boolean => {
     }
     return parsed;
   } catch (error) {
-    console.warn('Unable to read theme preference, defaulting to dark mode:', error);
-    document.documentElement.classList.add('dark-mode');
-    return true;
+    console.warn('Unable to read theme preference, defaulting to light mode:', error);
+    document.documentElement.classList.remove('dark-mode');
+    return false;
   }
 };
 
