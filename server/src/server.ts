@@ -97,6 +97,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    success: true,
+    message: 'Chat Application API is running',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      docs: '/api-docs',
+      graphql: '/graphql',
+      auth: '/api/auth',
+      conversations: '/api/conversations',
+      messages: '/api/messages',
+      analytics: '/api/analytics',
+      upload: '/api/upload',
+    },
+    environment: config.nodeEnv,
+  });
+});
+
 // Routes (keeping REST for backward compatibility, can be removed later)
 app.use('/api/auth', authRoutes);
 app.use('/api/conversations', conversationRoutes);
