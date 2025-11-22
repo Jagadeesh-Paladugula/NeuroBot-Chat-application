@@ -344,10 +344,6 @@ const GroupCreator = ({ onClose, onSuccess }: GroupCreatorProps) => {
   const [creating, setCreating] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
-
   const fetchUsers = useCallback(async () => {
     try {
       const response = await api.get<{ users: User[] }>('/conversations/users');
@@ -358,6 +354,10 @@ const GroupCreator = ({ onClose, onSuccess }: GroupCreatorProps) => {
       setLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
 
   const toggleUserSelection = useCallback((user: User) => {
     setSelectedUsers((prev) => {
